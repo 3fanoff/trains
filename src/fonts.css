@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'ys_text';
+    src: url('/src/fonts/ys_text_medium.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ys_text';
+    src: url('/src/fonts/ys_text_regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ys_text';
+    src: url('/src/fonts/ys_display_regular.ttf') format('truetype');
+    font-weight: 401;
+    font-style: normal;
+    font-display: swap;
+}

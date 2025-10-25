@@ -1,0 +1,140 @@
+body {
+    font-family: 'ys_text', sans-serif-medium, serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+:root {
+    --text_primary_light: #333;
+    --text_primary_dark: #fff;
+    --text_secondary: #999;
+    --gray_77: #777;
+}
+
+.trains-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    font-size: 16px;
+    color: var(--text_primary_light);
+    line-height: 1.2;
+}
+
+.trains-layout img,
+.trains-layout svg {
+    display: flex;
+}
+
+.trains-layout__header {
+}
+.trains-layout__main {
+    flex-basis: 100%;
+}
+.trains-layout__main--ticket {
+    padding: 0 1rem;
+}
+
+.trains-back {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #e7e7e7;
+    box-shadow: 0 -3px 3px 3px rgba(51, 51, 51, 0.15);
+
+    font-size: calc((22 / 16) * 1em);
+}
+.trains-back__arrow {
+    margin-right: 2rem;
+    margin-top: -0.4rem;
+    margin-bottom: -0.4rem;
+}
+
+.ticket-route {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.25rem;
+    margin-bottom: 1rem;
+}
+.ticket-route--gone {
+    margin-top: 2rem;
+}
+.ticket-route__icon {
+    margin-left: 1rem;
+}
+.ticket-route__name {
+    font-size: calc((22 / 16) * 1em);
+    line-height: 1.4;
+}
+
+.ticket-dates {
+    font-size: 1em;
+
+}
+.ticket-dates__day {
+    font-size: calc((22 / 16) * 1em);
+    font-weight: 700;
+    margin-top: 1.25rem;
+}
+.ticket-dates__until {
+    font-size: calc((15 / 16) * 1em);
+    color: var(--text_secondary);
+    margin-top: 0.25rem;
+}
+
+.ticket-about {
+    font-size: 1em;
+}
+.ticket-about__name {
+    font-size: calc((18 / 16) * 1em);
+    margin-top: 1.25rem;
+}
+.ticket-about__desc {
+    font-size: calc((15 / 16) * 1em);
+    color: var(--text_secondary);
+    margin-top: 0.25rem;
+}
+
+.ticket-barcode {
+    margin-top: 1.25rem;
+}
+.ticket-barcode__svg {
+    width: 290px;
+    height: 116px;
+    /*background: #333;*/
+    margin: 0 auto;
+
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.68s;
+}
+.ticket-barcode__svg-front,
+.ticket-barcode__svg-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.ticket-barcode__svg-back {
+    transform: rotateX(180deg);
+}
+.ticket-barcode__svg[data-flip] {
+    transform: rotateY(180deg);
+}
+
+.ticket-data {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 1rem;
+}
+.ticket-data__price {
+    font-size: calc((18 / 16) * 1em);
+    font-weight: 700;
+}
+.ticket-data__id {
+    color: var(--gray_77);
+    font-size: calc((13 / 16) * 1rem);
+}
