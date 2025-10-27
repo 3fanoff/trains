@@ -1,7 +1,7 @@
 {
-  "name": "Идеальные Билеты",
-  "short_name": "Билеты",
-  "description": "Билеты приложения Яндекс.Электрички",
+  "name": "Ideal tickets",
+  "short_name": "Tickest",
+  "description": "Tickets for Yandex.Trains",
   "start_url": "https://3fanoff.github.io/trains",
   "display": "standalone",
   "background_color": "#ffffff",
