@@ -1,6 +1,6 @@
 {
-  "name": "Ideal tickets",
-  "short_name": "Tickest",
+  "name": "Ideal Tickets",
+  "short_name": "Tickets",
   "description": "Tickets for Yandex.Trains",
   "start_url": "https://3fanoff.github.io/trains",
   "display": "standalone",
