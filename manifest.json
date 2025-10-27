@@ -19,5 +19,19 @@
       "type": "image/png"
     }
   ],
+  "screenshots": [
+    {
+      "src": "https://placehold.co/1280x720",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "https://placehold.co/375x667",
+      "sizes": "375x667",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
   "categories": ["transport"]
 }
