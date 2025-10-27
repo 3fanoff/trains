@@ -2,7 +2,7 @@
   "name": "Идеальные Билеты",
   "short_name": "Билеты",
   "description": "Билеты приложения Яндекс.Электрички",
-  "start_url": "/",
+  "start_url": "https://3fanoff.github.io/trains",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
