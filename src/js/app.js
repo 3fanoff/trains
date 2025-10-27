@@ -1,5 +1,5 @@
 (function f() {
-    var isFullScreen = false;
+    /*var isFullScreen = false;
     document.getElementById('ticket-route-icon').addEventListener('dblclick', function () {
         if (!isFullScreen) {
             document.documentElement.requestFullscreen().then(function () {
@@ -12,7 +12,18 @@
                 isFullScreen = false;
             });
         }
-    });
+    });*/
+
+    var turnRoute = false;
+    var routeNode = document.getElementById('ticket-route');
+    var routeFromNode = routeNode.querySelector('[data-from]');
+    var routeToNode = routeNode.querySelector('[data-to]');
+
+    document.getElementById('ticket-route-icon').addEventListener('dblclick', function () {
+        routeFromNode.innerText = !turnRoute ? routeNode.dataset.to : routeNode.dataset.from;
+        routeToNode.innerText = !turnRoute ? routeNode.dataset.from : routeNode.dataset.to;
+        turnRoute = !turnRoute;
+    })
 
     var currentDate = new Date();
     var nextDate = new Date();
