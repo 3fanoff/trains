@@ -1,18 +1,4 @@
 (function f() {
-    /*var isFullScreen = false;
-    document.getElementById('ticket-route-icon').addEventListener('dblclick', function () {
-        if (!isFullScreen) {
-            document.documentElement.requestFullscreen().then(function () {
-                isFullScreen = true;
-            })
-        }
-
-        if (isFullScreen) {
-            document.exitFullscreen().then(function () {
-                isFullScreen = false;
-            });
-        }
-    });*/
 
     var turnRoute = false;
     var routeNode = document.getElementById('ticket-route');
@@ -58,14 +44,20 @@
         }
     });
 
-    var initialID = 3682431558952;
-    var multiplexor = 26301;
-    /* +(Math.ceil(Math.random() * 100)) */
+    function getMultiplexor() {
+        var multiplexor = localStorage.getItem('multiplexor');
+        if (multiplexor === null) {
+            multiplexor = 26301 + (Math.ceil(Math.random() * 100));
+            localStorage.setItem('multiplexor', multiplexor);
+        }
+        return Number(multiplexor);
+    }
     var initialDate = new Date(2025, 9, 23, 0, 0, 0);
     var hoursAfterInitial = Math.floor((currentDate.getTime() - initialDate.getTime()) / 1000 / 60 / 60);
-    var generatedID = initialID + (multiplexor * hoursAfterInitial);
+    var initialID = 3682431558952;
+    var generatedID = initialID + (getMultiplexor() * hoursAfterInitial);
     console.log(hoursAfterInitial + ' hours left');
-    console.log(multiplexor);
+    console.log(getMultiplexor());
 
     document.getElementById('ticket-id').innerHTML = generatedID.toString();
 })();
