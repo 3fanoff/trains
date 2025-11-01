@@ -5,7 +5,7 @@
   "start_url": "https://3fanoff.github.io/trains",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "theme_color": "#757575",
   "orientation": "portrait",
   "icons": [
     {
