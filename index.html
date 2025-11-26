@@ -53,17 +53,117 @@
 		</div>
 		<section class="ticket-about">
 			<div class="ticket-about__name">Полный, в одну сторону</div>
-			<div class="ticket-about__desc">Билет на электричку стандарт (обычный пригородный поезд)</div>
+			<div class="ticket-about__desc" id="ticket-desc">Билет на электричку стандарт (обычный пригородный поезд)</div>
 			<!--<div class="ticket-about__desc">Билет на электричку «Ласточка»</div>-->
 		</section>
 	</main>
 	<footer class="trains-layout__footer">
 		<div class="ticket-data">
-			<div class="ticket-data__price">94 ₽</div>
-			<div class="ticket-data__id">Билет № <span id="ticket-id">3682431558952</span></div>
+			<div class="ticket-data__price" id="ticket-price">94 ₽</div>
+			<div class="ticket-data__id" id="change-route">Билет № <span id="ticket-id">3682431558952</span></div>
 		</div>
+		<div class="trains-popup" style="display: none" id="ticket-change-popup">
+			<div class="trains-popup__overlay"></div>
+			<div class="trains-popup__content trains-popup__content--column">
+				<label>
+					<input type="checkbox" name="type_2" id="route-type">&nbsp;Ласточка
+				</label>
+				<br>
+				<label for="route-select">Маршрут:</label><br>
+				<select name="route" id="route-select">
+					<option value="1001">Лесколово — Финляндский</option>
+					<option value="1002">Лесколово — Кушелевка</option>
+					<option value="1003">Лесколово — Пискаревка</option>
+					<option value="1004">Лесколово — Новая Охта</option>
+					<option value="1005">Лесколово — Девяткино</option>
+					<option value="1006">Лесколово — Кузьмолово</option>
+					<option value="1007">Лесколово — Токсово</option>
+					<option value="1008">Лесколово — Осельки</option>
+					<option value="1009">Лесколово — Сосново</option>
+				</select>
+				<br>
+				<button id="trains-popup-close"
+						onclick="document.getElementById('ticket-change-popup').style.display = 'none';">Выйти</button>
+			</div>
+		</div>
+
 	</footer>
 	<script type="text/javascript">
+		window.routes_content = {
+			description: {
+				type_1: 'Билет на электричку стандарт (обычный пригородный поезд)',
+				type_2: 'Билет на электричку «Ласточка»',
+			},
+			ticket_icon: {
+				type_1: 'src/ic_etrain_type_light.svg',
+				type_2: 'src/ic_etrain_type_dark.svg',
+			},
+		}
+		window.routes = [
+			{
+				code: '1001',
+				from: 'Лесколово (39 км)',
+				to: 'Санкт-Петербург (Финляндский вокзал)',
+				price_type_1: '130 ₽',
+				price_type_2: '152 ₽'
+			},
+			{
+				code: '1002',
+				from: 'Лесколово (39 км)',
+				to: 'Кушелевка',
+				price_type_1: '118 ₽',
+				price_type_2: '137 ₽'
+			},
+			{
+				code: '1003',
+				from: 'Лесколово (39 км)',
+				to: 'Пискарёвка',
+				price_type_1: '108 ₽',
+				price_type_2: '126 ₽'
+			},
+			{
+				code: '1004',
+				from: 'Лесколово (39 км)',
+				to: 'Новая Охта (Мурино)',
+				price_type_1: '94 ₽',
+				price_type_2: '108 ₽'
+			},
+			{
+				code: '1005',
+				from: 'Лесколово (39 км)',
+				to: 'Девяткино',
+				price_type_1: '89 ₽',
+				price_type_2: '103 ₽'
+			},
+			{
+				code: '1006',
+				from: 'Лесколово (39 км)',
+				to: 'Кузьмолово',
+				price_type_1: '62 ₽',
+				price_type_2: '72 ₽'
+			},
+			{
+				code: '1007',
+				from: 'Лесколово (39 км)',
+				to: 'Токсово',
+				price_type_1: '49 ₽',
+				price_type_2: '57 ₽'
+			},
+			{
+				code: '1008',
+				from: 'Лесколово (39 км)',
+				to: 'Осельки',
+				price_type_1: '46 ₽',
+				price_type_2: '53 ₽'
+			},
+			{
+				code: '1009',
+				from: 'Лесколово (39 км)',
+				to: 'Сосново',
+				price_type_1: '115 ₽',
+				price_type_2: '133 ₽'
+			},
+		]
 		if ('serviceWorker' in navigator) {
 			window.addEventListener('load', function() {
 				navigator.serviceWorker.register('sw.js')

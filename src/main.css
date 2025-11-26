@@ -65,6 +65,7 @@ body {
 .ticket-route__name {
     font-size: calc((22 / 16) * 1em);
     line-height: 1.4;
+    user-select: none;
 }
 
 .ticket-dates {
@@ -137,4 +138,31 @@ body {
 .ticket-data__id {
     color: var(--gray_77);
     font-size: calc((13 / 16) * 1rem);
+}
+
+.trains-popup__content {
+    position: absolute;
+    left: 5vw;
+    right: 5vw;
+    bottom: 5vh;
+    top: 5vh;
+    z-index: 100;
+    background: #FFF;
+    padding: 20px;
+}
+.trains-popup__content--column {
+    display: flex;
+    flex-direction: column;
+}
+
+.trains-popup__overlay {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 90;
+    background: #000;
+    opacity: 0.5;
 }

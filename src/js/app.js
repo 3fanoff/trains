@@ -2,14 +2,40 @@
 
     var turnRoute = false;
     var routeNode = document.getElementById('ticket-route');
+    var priceNode = document.getElementById('ticket-price');
+    var routeIconNode = document.getElementById('ticket-route-icon');
+    var descriptionNode = document.getElementById('ticket-desc');
     var routeFromNode = routeNode.querySelector('[data-from]');
     var routeToNode = routeNode.querySelector('[data-to]');
+    var currentRouteData = JSON.parse(localStorage.getItem('currentRouteData'));
+    var currentRouteType = localStorage.getItem('currentRouteType') || 'type_1';
 
-    document.getElementById('ticket-route-icon').addEventListener('dblclick', function () {
-        routeFromNode.innerText = !turnRoute ? routeNode.dataset.to : routeNode.dataset.from;
-        routeToNode.innerText = !turnRoute ? routeNode.dataset.from : routeNode.dataset.to;
+    if (currentRouteData) {
+        renderRouteData();
+        changeTypeContent();
+        document.getElementById('route-type').checked = currentRouteType === 'type_2';
+    }
+
+    routeIconNode.addEventListener('dblclick', function () {
+        document.getElementById('ticket-change-popup').style.display = '';
+    });
+
+    routeFromNode.addEventListener('dblclick', function () {
+        if (!currentRouteData) return;
+        renderRouteData();
         turnRoute = !turnRoute;
     })
+
+    function renderRouteData() {
+        routeFromNode.innerText = !turnRoute ? currentRouteData.to : currentRouteData.from;
+        routeToNode.innerText = !turnRoute ? currentRouteData.from : currentRouteData.to;
+        priceNode.innerText = currentRouteData['price_' + currentRouteType];
+    }
+
+    function changeTypeContent () {
+        routeIconNode.querySelector('img').src = window.routes_content.ticket_icon[currentRouteType];
+        descriptionNode.innerText = window.routes_content.description[currentRouteType];
+    }
 
     var currentDate = new Date();
     var nextDate = new Date();
@@ -60,4 +86,28 @@
     console.log(getMultiplexor());
 
     document.getElementById('ticket-id').innerHTML = generatedID.toString();
+
+    document.getElementById('route-type').addEventListener('change', function () {
+        currentRouteType = this.checked ? 'type_2' : 'type_1';
+        localStorage.setItem('currentRouteType', currentRouteType);
+        changeTypeContent();
+        priceNode.innerText = currentRouteData['price_' + currentRouteType];
+    });
+
+    document.getElementById('route-select').addEventListener('change', function () {
+        var routeCode = this.value;
+        var routeData = window.routes.find(function (item) {
+            return item.code === routeCode;
+        })
+        if (routeData) {
+            localStorage.setItem('currentRouteData', JSON.stringify(routeData));
+            currentRouteData = routeData;
+
+            routeFromNode.innerText = currentRouteData.from;
+            routeToNode.innerText = currentRouteData.to;
+            priceNode.innerText = currentRouteData['price_' + currentRouteType];
+        } else {
+            alert('не найдены данные для маршрута ' + routeCode);
+        }
+    })
 })();
