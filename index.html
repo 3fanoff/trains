@@ -4,20 +4,20 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<link rel="stylesheet" href="src/reset.css" />
-	<link rel="stylesheet" href="src/fonts.css" />
-	<link rel="stylesheet" href="src/main.css" />
-	<link rel="icon" href="src/favicon/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/trains/src/reset.css" />
+	<link rel="stylesheet" href="/trains/src/fonts.css" />
+	<link rel="stylesheet" href="/trains/src/main.css" />
+	<link rel="icon" href="/trains/src/favicon/favicon.ico" type="image/x-icon">
 	<title>Яндекс Электрички</title>
 
-	<link rel="manifest" href="https://3fanoff.github.io/trains/manifest.json">
+	<link rel="manifest" href="/trains/manifest.json">
 	<meta name="theme-color" content="#ffffff"/>
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<link rel="apple-touch-icon" href="src/favicon/icon-192.png">
+	<link rel="apple-touch-icon" href="/trains/src/favicon/icon-192.png">
 
 	<!-- Для Windows -->
-	<meta name="msapplication-TileImage" content="src/favicon/icon-192.png">
+	<meta name="msapplication-TileImage" content="/trains/src/favicon/icon-192.png">
 	<meta name="msapplication-TileColor" content="#000000">
 </head>
 <body class="trains-layout">
@@ -39,11 +39,11 @@
 				 data-from="Лесколово (39 км)"
 				 data-to="Новая Охта (Мурино)"
 			><span data-from>Лесколово (39 км)</span> — <span data-to>Новая Охта (Мурино)</span></div>
-			<div class="ticket-route__icon" id="ticket-route-icon"><img src="src/ic_etrain_type_light.svg" width="32" height="32" alt="train"></div>
+			<div class="ticket-route__icon" id="ticket-route-icon"><img src="/trains/src/ic_etrain_type_light.svg" width="32" height="32" alt="train"></div>
 		</section>
 		<section class="ticket-dates">
-			<div class="ticket-dates__day" id="ticket-day">25 ноября</div>
-			<div class="ticket-dates__until" id="ticket-day-until">Действует до 01:00 26 ноября</div>
+			<div class="ticket-dates__day" id="ticket-day">5 января</div>
+			<div class="ticket-dates__until" id="ticket-day-until">Действует до 01:00 6 января</div>
 		</section>
 		<div class="ticket-barcode">
 			<div class="ticket-barcode__svg" id="ticket-barcode-svg">
@@ -59,7 +59,7 @@
 	</main>
 	<footer class="trains-layout__footer">
 		<div class="ticket-data">
-			<div class="ticket-data__price" id="ticket-price">94 ₽</div>
+			<div class="ticket-data__price" id="ticket-price">161 ₽</div>
 			<div class="ticket-data__id" id="change-route">Билет № <span id="ticket-id">3682431558952</span></div>
 		</div>
 		<div class="trains-popup" style="display: none" id="ticket-change-popup">
@@ -80,6 +80,8 @@
 					<option value="1007">Лесколово — Токсово</option>
 					<option value="1008">Лесколово — Осельки</option>
 					<option value="1009">Лесколово — Сосново</option>
+					<option value="1050">Бернгардовка — Финляндский</option>
+					<option value="1051">Бернгардовка — Пискарёвка</option>
 				</select>
 				<br>
 				<button id="trains-popup-close"
@@ -104,69 +106,83 @@
 				code: '1001',
 				from: 'Лесколово (39 км)',
 				to: 'Санкт-Петербург (Финляндский вокзал)',
-				price_type_1: '130 ₽',
-				price_type_2: '152 ₽'
+				price_type_1: '161 ₽',
+				price_type_2: '177 ₽'
 			},
 			{
 				code: '1002',
 				from: 'Лесколово (39 км)',
 				to: 'Кушелевка',
-				price_type_1: '118 ₽',
-				price_type_2: '137 ₽'
+				price_type_1: '161 ₽',
+				price_type_2: '177 ₽'
 			},
 			{
 				code: '1003',
 				from: 'Лесколово (39 км)',
 				to: 'Пискарёвка',
-				price_type_1: '108 ₽',
-				price_type_2: '126 ₽'
+				price_type_1: '161 ₽',
+				price_type_2: '177 ₽'
 			},
 			{
 				code: '1004',
 				from: 'Лесколово (39 км)',
 				to: 'Новая Охта (Мурино)',
-				price_type_1: '94 ₽',
-				price_type_2: '108 ₽'
+				price_type_1: '161 ₽',
+				price_type_2: '177 ₽'
 			},
 			{
 				code: '1005',
 				from: 'Лесколово (39 км)',
 				to: 'Девяткино',
-				price_type_1: '89 ₽',
-				price_type_2: '103 ₽'
+				price_type_1: '93 ₽',
+				price_type_2: '108 ₽'
 			},
 			{
 				code: '1006',
 				from: 'Лесколово (39 км)',
 				to: 'Кузьмолово',
-				price_type_1: '62 ₽',
-				price_type_2: '72 ₽'
+				price_type_1: '65 ₽',
+				price_type_2: '76 ₽'
 			},
 			{
 				code: '1007',
 				from: 'Лесколово (39 км)',
 				to: 'Токсово',
-				price_type_1: '49 ₽',
-				price_type_2: '57 ₽'
+				price_type_1: '51 ₽',
+				price_type_2: '60 ₽'
 			},
 			{
 				code: '1008',
 				from: 'Лесколово (39 км)',
 				to: 'Осельки',
-				price_type_1: '46 ₽',
-				price_type_2: '53 ₽'
+				price_type_1: '48 ₽',
+				price_type_2: '56 ₽'
 			},
 			{
 				code: '1009',
 				from: 'Лесколово (39 км)',
 				to: 'Сосново',
-				price_type_1: '115 ₽',
-				price_type_2: '133 ₽'
+				price_type_1: '121 ₽',
+				price_type_2: '140 ₽'
+			},
+			{
+				code: '1050',
+				from: 'Бернгардовка',
+				to: 'Санкт-Петербург (Финляндский вокзал)',
+				price_type_1: '82 ₽',
+				price_type_2: '85 ₽'
+			},
+			{
+				code: '1051',
+				from: 'Бернгардовка',
+				to: 'Пискарёвка',
+				price_type_1: '82 ₽',
+				price_type_2: '85 ₽'
 			},
 		]
 		if ('serviceWorker' in navigator) {
 			window.addEventListener('load', function() {
-				navigator.serviceWorker.register('sw.js')
+				navigator.serviceWorker.register('/trains/sw.js', { scope: '/trains/' })
 						.then(function(registration) {
 							console.log('SW registered: ', registration);
 						})
@@ -176,5 +192,5 @@
 			});
 		}
 	</script>
-	<script type="text/javascript" src="src/js/app.js"></script>
+	<script type="text/javascript" src="/trains/src/js/app.js"></script>
 </body>

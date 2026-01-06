@@ -1,6 +1,6 @@
 (function f() {
 
-    var turnRoute = false;
+    var turnRoute = JSON.parse(localStorage.getItem('turnRoute')) || false;
     var routeNode = document.getElementById('ticket-route');
     var priceNode = document.getElementById('ticket-price');
     var routeIconNode = document.getElementById('ticket-route-icon');
@@ -22,13 +22,14 @@
 
     routeFromNode.addEventListener('dblclick', function () {
         if (!currentRouteData) return;
-        renderRouteData();
         turnRoute = !turnRoute;
+        localStorage.setItem('turnRoute', turnRoute);
+        renderRouteData();
     })
 
     function renderRouteData() {
-        routeFromNode.innerText = !turnRoute ? currentRouteData.to : currentRouteData.from;
-        routeToNode.innerText = !turnRoute ? currentRouteData.from : currentRouteData.to;
+        routeFromNode.innerText = turnRoute === false ? currentRouteData.from : currentRouteData.to;
+        routeToNode.innerText = turnRoute === false ? currentRouteData.to : currentRouteData.from;
         priceNode.innerText = currentRouteData['price_' + currentRouteType];
     }
 
@@ -102,10 +103,7 @@
         if (routeData) {
             localStorage.setItem('currentRouteData', JSON.stringify(routeData));
             currentRouteData = routeData;
-
-            routeFromNode.innerText = currentRouteData.from;
-            routeToNode.innerText = currentRouteData.to;
-            priceNode.innerText = currentRouteData['price_' + currentRouteType];
+            renderRouteData();
         } else {
             alert('не найдены данные для маршрута ' + routeCode);
         }

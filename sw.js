@@ -1,13 +1,14 @@
 const CACHE_NAME = 'trains';
+const BASE_PATH = '/trains/';
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/src/fonts.css',
-    '/src/main.css',
-    '/src/reset.css',
-    '/src/js/app.js',
-    '/src/favicon/icon-192.png',
-    '/src/favicon/icon-512.png'
+    BASE_PATH,
+    BASE_PATH + 'index.html',
+    BASE_PATH + 'src/fonts.css',
+    BASE_PATH + 'src/main.css',
+    BASE_PATH + 'src/reset.css',
+    BASE_PATH + 'src/js/app.js',
+    BASE_PATH + 'src/favicon/icon-192.png',
+    BASE_PATH + 'src/favicon/icon-512.png'
 ];
 
 self.addEventListener('install', function(event) {
@@ -32,14 +33,23 @@ self.addEventListener('install', function(event) {
 });
 
 self.addEventListener('fetch', function(event) {
-    event.respondWith(
-        caches.match(event.request)
-            .then(function(response) {
-                    if (response) {
-                        return response;
+    const requestUrl = new URL(event.request.url);
+
+    if (requestUrl.origin === location.origin &&
+        requestUrl.pathname.startsWith(BASE_PATH)) {
+        event.respondWith(
+            caches.match(event.request)
+                .then(function(response) {
+                        if (response) {
+                            return response;
+                        }
+                        return fetch(event.request).catch(() =>
+                            caches.match(BASE_PATH + 'index.html')
+                        );
                     }
-                    return fetch(event.request);
-                }
-            )
-    );
+                )
+        );
+    }
+
+
 });
