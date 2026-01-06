@@ -8,7 +8,12 @@ const urlsToCache = [
     BASE_PATH + 'src/reset.css',
     BASE_PATH + 'src/js/app.js',
     BASE_PATH + 'src/favicon/icon-192.png',
-    BASE_PATH + 'src/favicon/icon-512.png'
+    BASE_PATH + 'src/favicon/icon-512.png',
+    BASE_PATH + 'src/ic_etrain_type_light.svg',
+    BASE_PATH + 'src/ic_etrain_type_dark.svg',
+    BASE_PATH + 'pub/barcode_0002.jpg',
+    BASE_PATH + 'src/fonts/ys_text_medium.ttf',
+    BASE_PATH + 'src/fonts/ys_text_regular.ttf',
 ];
 
 self.addEventListener('install', function(event) {
